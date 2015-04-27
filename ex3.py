@@ -2,7 +2,7 @@
 print "I will now count my count my chickens"
 
 #Hens is 25 + (30 / 6) = 30
-print "Hens", 25 + 30 / 6
+print "Hens", 25 + 30.0 / 6
 #Roosters is 100 - (25 * 3) % 4
 print "Roosters", 100 - 25 * 3 % 4
 
