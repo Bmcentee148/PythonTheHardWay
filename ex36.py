@@ -23,10 +23,9 @@ def space_void() :
         if direction_choice == '1' :
             print "User chooses to move to earth."
             earth() 
-            exit(0)
         elif direction_choice == '2' : 
             print "User chooses to move towards the shuttle."
-            exit(0)
+            space_ship()
         else :
             print "Error: Input not recognized."
             print "Type either 1 or 2 and press ENTER."
@@ -40,19 +39,19 @@ def earth() :
     print "(2) Medium"
     print "(3) Fast\n"
     
-    choice_confirmed = False
     
-    while not choice_confirmed :
+    while True :
         speed_choice = raw_input("> ")
         if speed_choice == '1' :
             print "We will go slow."
-            choice_confirmed = True
+            dead("You had terrible timing and got hit by an asteroid. Dead!")
         elif speed_choice == '2' :
             print "We will go medium."
-            choice_confirmed = True
+            print "You made it home, but the fuckheads on earth sent you back..."
+            space_void()
         elif speed_choice == '3' :
             print "We will go fast."
-            choice_confirmed = True
+            dead("You're boosters couldn't handle all that thrust and you died.")
         else : 
             print "Error: Invalid input"
             print "Type either 1, 2, or 3 at the prompt and press ENTER"
@@ -61,7 +60,25 @@ def earth() :
 
 def space_ship() :
     """This is when the user chooses to boost to the space ship."""
-    #TODO
+    print "Boosters aren't looking so great? Should we take it slow?\n"
+    print "(1) Slow\n(2) Fast\n"
+
+    speed_choice = raw_input("> ")
+    choice_confirmed = False;
+
+    while True:
+        if speed_choice == '1' :
+            print "You've made it to your ship. Mission complete!"
+            exit(0)
+        elif speed_choice == '2' :
+            dead("You're boosters couldn't handle the thrust, you've died!")
+        else :
+            print "Error: Invalid input"
+            print "Type either 1 or 2 at the prompt and press ENTER"
+
+def dead(reason_why) :
+    print reason_why
+    exit(0)
 
 space_void()
 
