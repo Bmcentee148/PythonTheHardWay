@@ -49,11 +49,20 @@ for state, abbreviation in states.items() :
 
 print '-' * 10
 # safely get an abbreviation given a state that might not be there
-state = states.get('Texas', None)
+state_abbrev = states.get('Texas', None)
 
-if not state:
+if not state_abbrev:
     print "Sorry, no Texas."
 
 # get a city with a default value
 city = cities.get('TX', 'Does not exist')
 print "The city for the state Texas is: %s" % city
+
+# this time we will use get method and succeed
+print '-' * 10
+state_abbrev = states.get("New York")
+ny_city = cities.get(state_abbrev)
+
+if state_abbrev and ny_city :
+    print "The abbreviation for New York state is: %s" % state_abbrev
+    print "New York state has the city: %s" % ny_city
