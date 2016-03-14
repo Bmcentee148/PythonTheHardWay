@@ -1,3 +1,6 @@
+# Exploring how inheritance works
+# @author Brian McEntee
+
 class Person(object) :
     kingdom = "Animal"
     def __init__(self, name, age) :
@@ -37,6 +40,4 @@ print brian.get_salary()
 
 print brian.get_name()
 
-brian.print_name()
-brian.kingdom = "None"
-brian.print_kingdom()
+print brian.get_age()
