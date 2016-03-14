@@ -1,15 +1,27 @@
+# Class Definitions
 class Map(object) :
     
-    def next_scene() :
+    def __init__(self, start_scene) :
         pass
 
-    def opening_scene
+    def next_scene(self) :
+        pass
+
+    def opening_scene(self) :
+        pass
 
 class Engine(object) :
-    pass
+    
+    def __init__(self, scene_map) :
+        pass
+
+    def play(self) :
+        pass
 
 class Scene(object) :
-    pass
+    
+    def enter(self) :
+        pass
 
 class Death(Scene) :
     pass
@@ -25,3 +37,8 @@ class Bridge(Scene) :
 
 class Escape_Pod(Scene) :
     pass
+
+#Script
+game_map = Map('Central_Corridor') # create map of game scenes
+game = Engine(game_map) # create game engine using map of scenes
+game.play() # run the game
