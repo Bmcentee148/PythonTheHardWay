@@ -1,10 +1,14 @@
-class Map :
+class Map(object) :
+    
+    def next_scene() :
+        pass
+
+    def opening_scene
+
+class Engine(object) :
     pass
 
-class Engine :
-    pass
-
-class Scene :
+class Scene(object) :
     pass
 
 class Death(Scene) :
