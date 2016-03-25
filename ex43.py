@@ -3,24 +3,6 @@ from sys import exit
 from random import randint
 
 # Class Definitions
-class Map(object) :
-    
-    scenes = {
-        'death' : Death() ,
-        'central_corridor' : Central_Corridor(),
-        'laser_weapon_armory' : Armory(),
-        'escape_pod' : Escape_Pod()
-        'bridge' : Bridge()
-    }
-
-    def __init__(self, start_scene) :
-        self.start_scene = start_scene
-
-    def next_scene(self, scene_name) :
-        return Map.scenes.get(scene_name)
-
-    def opening_scene(self) :
-        return self.next_scene(self.start_scene)
 
 class Engine(object) :
     
@@ -29,7 +11,7 @@ class Engine(object) :
 
     def play(self) :
         current_scene = self.scene_map.opening_scene()
-
+        
         while True :
             print "\n--------------"
             next_scene_name = current_scene.enter()
@@ -68,6 +50,24 @@ class Escape_Pod(Scene) :
     def enter(self) :
         pass
 
+class Map(object) :
+    
+    scenes = {
+        'death' : Death() ,
+        'central_corridor' : Central_Corridor(),
+        'laser_weapon_armory' : Armory(),
+        'escape_pod' : Escape_Pod(),
+        'bridge' : Bridge()
+    }
+
+    def __init__(self, start_scene) :
+        self.start_scene = start_scene
+
+    def next_scene(self, scene_name) :
+        return Map.scenes.get(scene_name)
+
+    def opening_scene(self) :
+        return self.next_scene(self.start_scene)
 #Script
 game_map = Map('Central_Corridor') # create map of game scenes
 game = Engine(game_map) # create game engine using map of scenes
