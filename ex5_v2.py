@@ -4,10 +4,12 @@ print "Let's talk about %s." % name
 
 height = 74 # inches
 height_centimeters = height * 2.54
+print height_centimeters
 print "He's %d inches, or %d centimeters tall." % (height, round(height_centimeters))
 
 weight = 180 # pounds
 weight_kilograms = weight * 0.453592
+print weight_kilograms
 print "He's %d pounds, or %d kilograms heavy." % (weight, round(weight_kilograms))
 print "Actually, thats not too heavy."
 
