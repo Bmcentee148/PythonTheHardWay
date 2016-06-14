@@ -10,6 +10,7 @@ def scan(sentence) :
     words = sentence.split()
     
     for w in words :
+        w = w.lower().strip('?!.,')
         if w in directions :
             lex.append(('direction', w))
         elif w in verbs :
@@ -26,3 +27,4 @@ def scan(sentence) :
                 lex.append(('error', w))
 
     return lex
+
