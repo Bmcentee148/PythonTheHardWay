@@ -23,7 +23,7 @@ def test_match() :
 
 
 def test_parse_verb() :
-    wordlist = [('stop','the'), ('verb','go'),
+    wordlist = [('stop','the'), ('error','baby'),('verb','go'),
         ('direction','north'), ('noun','princess')]
     emptylist = []
     assert_equals(parse_verb(wordlist), ('verb', 'go') )

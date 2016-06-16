@@ -60,18 +60,18 @@ def match(word_list, expecting) :
             result = word
     return result
 
-def skip(word_list, word_type) :
+def skip(word_list, word_types) :
     """Skips all sequential words in the word list of the given type.
     
     Args:
         word_list - A list of type,word tuples from a sentence
         word_type - the type of words we would like to skip over in the list
     """
-    while peek(word_list) == word_type :
-        match(word_list, word_type)
+    while peek(word_list) in word_types :
+        match(word_list, peek(word_list))
 
 
-#-- Basic text parsing functions --#
+#-- Basic sentence structure parsing functions --#
 
 def parse_verb(word_list) :
     """Parse a scanned word list for the verb in the sentence.
@@ -83,7 +83,7 @@ def parse_verb(word_list) :
     Raises:
         ParseError - if the next word type found is not of type verb
     """
-    skip(word_list, 'stop')
+    skip(word_list, ['stop','error'])
     if peek(word_list) == 'verb' :
         return match(word_list, 'verb')
     else :
@@ -99,7 +99,7 @@ def parse_subject(word_list) :
     Raises:
         ParseError - if the next type of word found is not a noun or verb
     """
-    skip(word_list, 'stop')
+    skip(word_list, ['stop','error'])
     if peek(word_list) == 'noun' :
         return match(word_list, 'noun')
     elif peek(word_list) == 'verb' :
@@ -117,7 +117,7 @@ def parse_object(word_list) :
     Raises:
         ParseError - if the next type of word is not a noun or direction
     """     
-    skip(word_list, 'stop')
+    skip(word_list, ['stop','error'])
     if peek(word_list) == 'noun' :
         return match(word_list, 'noun')
     elif peek(word_list) == 'direction' :
