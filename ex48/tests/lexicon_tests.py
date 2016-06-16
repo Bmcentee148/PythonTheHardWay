@@ -2,8 +2,6 @@
 
 from nose.tools import *
 from ex48 import lexicon
-from ex48 import parser
-from ex48.parser import *
 
 def test_directions() :
     assert_equal(lexicon.scan("north"),[ ('direction','north') ])
@@ -48,40 +46,4 @@ def test_sentence() :
     assert_equal(lexicon.scan("Bear princess the back."), 
                 [('noun','bear'),('noun','princess'),
                 ('stop','the'),('direction','back')])
-
-def test_sentence_class() :
-    s = Sentence(('noun','player'), ('verb','go'), ('noun','north'))
-    assert_equals(s.subject , "player")
-    assert_equals(s.verb , "go")
-    assert_equals(s.obj , "north")
-
-def test_peek() :
-    assert_equals(peek([('verb','go'), ('noun','princess')]), 'verb' )
-
-def test_match() :
-    assert_equals(match([('verb','go'), ('noun','princess')], 'verb'),
-         ('verb', 'go'))
-    
-    assert_equals(match([('verb','go'), ('noun','princess')], 'noun'), None)
-    
-    assert_equals(match([('noun','bear'), ('noun','princess')], 'noun'),
-         ('noun', 'bear'))
-
-    assert_equals(match([],'verb'), None)
-
-
-def test_parse_verb() :
-    wordlist = [('stop','the'), ('verb','go'),
-        ('direction','north'), ('noun','princess')]
-    emptylist = []
-    assert_equals(parse_verb(wordlist), ('verb', 'go') )
-    assert_raises(ParseError, parse_verb, emptylist )
-    assert_raises(ParseError, parse_verb, 
-        [('stop','the'), ('noun','princess')] )
-
-
-
-
-
-
 

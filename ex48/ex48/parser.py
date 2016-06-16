@@ -14,6 +14,11 @@ class Sentence(object) :
         self.subject = subject[1]
         self.verb = verb[1]
         self.obj = obj[1]
+
+    def __eq__(self, other) :
+        return (self.subject == other.subject and
+                self.verb == other.verb and
+                self.obj == other.obj)
 # end Sentence class
 
 #-- Custom Exception Classes --#
@@ -94,7 +99,13 @@ def parse_subject(word_list) :
     Raises:
         ParseError - if the next type of word found is not a noun or verb
     """
-    pass
+    skip(word_list, 'stop')
+    if peek(word_list) == 'noun' :
+        return match(word_list, 'noun')
+    elif peek(word_list) == 'verb' :
+        return ('noun', 'player')
+    else :
+        raise ParseError("Error parsing: Expected a noun or verb next.")
 
 def parse_object(word_list) :
     """Parse a scanned word list for the object in the sentence.
@@ -105,5 +116,17 @@ def parse_object(word_list) :
         the object of the sentence from the word list
     Raises:
         ParseError - if the next type of word is not a noun or direction
-    """
-    pass
+    """     
+    skip(word_list, 'stop')
+    if peek(word_list) == 'noun' :
+        return match(word_list, 'noun')
+    elif peek(word_list) == 'direction' :
+        return match(word_list, 'direction')
+    else :
+        raise ParseError("Error parsing: Expected a noun or direction.")
+
+def parse_sentence(word_list) :
+    subject = parse_subject(word_list)
+    verb = parse_verb(word_list)
+    obj = parse_object(word_list)
+    return Sentence(subject, verb, obj)
