@@ -2,6 +2,9 @@
 
 from nose.tools import *
 from ex48 import lexicon
+from ex48 import parser
+from ex48.parser import Sentence
+from ex48.parser import peek
 
 def test_directions() :
     assert_equal(lexicon.scan("north"),[ ('direction','north') ])
@@ -47,6 +50,14 @@ def test_sentence() :
                 [('noun','bear'),('noun','princess'),
                 ('stop','the'),('direction','back')])
 
+def test_sentence_class() :
+    s = Sentence(('noun','player'), ('verb','go'), ('noun','north'))
+    assert_equals(s.subject , "player")
+    assert_equals(s.verb , "go")
+    assert_equals(s.obj , "north")
+
+def test_peek() :
+    assert_equals(peek([('verb','go'), ('noun','princess')]), 'verb' )
 
 
 
