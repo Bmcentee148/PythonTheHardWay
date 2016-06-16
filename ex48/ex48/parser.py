@@ -19,43 +19,91 @@ class Sentence(object) :
 #-- Custom Exception Classes --#
 
 class ParseError(Exception) :
-
+    """Raised when we parse through an unexpected type of word."""
     def __init__(self, msg) :
         self.msg = msg
 
 #-- Functions designed to aid in parsing --#
 
-def peek(scanned_sentence) :
+def peek(word_list) :
+    """Look at the next words type in the scanned sentence without removal.
+    
+    Args:
+        word_list - A list of type, word tuples from a sentence
+    Returns:
+        the type of word that is next in the list or None if the list is empty
+    """
     result = None
-    if scanned_sentence :
-        word = scanned_sentence[0]
+    if word_list :
+        word = word_list[0]
         result = word[0]
     return result
 
-def match(scanned_sentence, expecting) :
+def match(word_list, expecting) :
+    """Get and remove the next word from the list if it is the expected type.
+
+    Args:
+        word_list - A list of type, word tuples from a sentence
+        expecting - the expected type of word we want from the list
+    Returns:
+        the next type, word tuple in list if expected type, else None
+    """
     result = None
-    if scanned_sentence :
-        word = scanned_sentence.pop(0)
+    if word_list :
+        word = word_list.pop(0)
         if word[0] == expecting :
             result = word
     return result
 
-def skip(scanned_sentence, word_type) :
-    while peek(scanned_sentence) == word_type :
-        match(scanned_sentence, word_type)
+def skip(word_list, word_type) :
+    """Skips all sequential words in the word list of the given type.
+    
+    Args:
+        word_list - A list of type,word tuples from a sentence
+        word_type - the type of words we would like to skip over in the list
+    """
+    while peek(word_list) == word_type :
+        match(word_list, word_type)
 
 
 #-- Basic text parsing functions --#
 
-def parse_verb(scanned_sentence) :
-    skip(scanned_sentence, 'stop')
-    if peek(scanned_sentence) == 'verb' :
-        return match(scanned_sentence, 'verb')
+def parse_verb(word_list) :
+    """Parse a scanned word list for the verb in the sentence.
+    
+    Args:
+        word_list - list of type,word tuples from a sentence
+    Returns:
+        the next word of type verb found in the list
+    Raises:
+        ParseError - if the next word type found is not of type verb
+    """
+    skip(word_list, 'stop')
+    if peek(word_list) == 'verb' :
+        return match(word_list, 'verb')
     else :
         raise ParseError("Error parsing: Expected a verb next.")
 
-def parse_subject(scanned_sentence) :
+def parse_subject(word_list) :
+    """Parse a scanned word list for the subject in the sentence.
+    
+    Args: 
+        word_list - list of type,word tuples from the sentence
+    Returns:
+        the subject of the sentence from the word list
+    Raises:
+        ParseError - if the next type of word found is not a noun or verb
+    """
     pass
 
-def parse_object(scanned_sentence) :
+def parse_object(word_list) :
+    """Parse a scanned word list for the object in the sentence.
+    
+    Args:
+        word_list - list of type,word tuples from the sentence
+    Returns:
+        the object of the sentence from the word list
+    Raises:
+        ParseError - if the next type of word is not a noun or direction
+    """
     pass

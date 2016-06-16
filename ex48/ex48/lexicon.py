@@ -6,6 +6,13 @@ stops = ['the', 'in', 'from', 'of', 'at', 'it']
 nouns = ['door', 'bear', 'princess', 'cabinet']
 
 def scan(sentence) :
+    """Turns a string of words into a list of (type, word) pairs.
+
+    Args:
+        sentence - The string of words to scan through
+    Returns:
+        a list of type, word tuples contained in the sentence
+    """
     lex = []
     words = sentence.split()
     

@@ -3,11 +3,7 @@
 from nose.tools import *
 from ex48 import lexicon
 from ex48 import parser
-from ex48.parser import Sentence
-from ex48.parser import peek
-from ex48.parser import match
-from ex48.parser import parse_verb
-from ex48.parser import ParseError
+from ex48.parser import *
 
 def test_directions() :
     assert_equal(lexicon.scan("north"),[ ('direction','north') ])
