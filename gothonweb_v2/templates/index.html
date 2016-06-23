@@ -6,10 +6,11 @@ $def with (greeting)
     <title>Welcome User!</title>
 </head>
 <body>
-    $if greeting :
+    $if greeting:
         <p>There is a message for you! Here it is...</p>
         <p><em>$greeting</em></p>
     $else :
         <p>This is a default message!</p>
+    <a href="http://localhost:8080/hello">Go Back</a>
 </body>
 </html>
