@@ -1,0 +1,15 @@
+$for with (greeting)
+
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome User!</title>
+</head>
+<body>
+    $if greeting :
+        <p>There is a message for you! Here it is...</p>
+        <p><em>$greeting</em></p>
+    $else :
+        <p>This is a default message!</p>
+</body>
+</html>
