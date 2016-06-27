@@ -1,16 +1,6 @@
 $def with (greeting)
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome User!</title>
-</head>
-<body>
-    $if greeting:
-        <p>There is a message for you! Here it is...</p>
-        <p><em>$greeting</em></p>
-    $else :
-        <p>This is a default message!</p>
-    <a href="http://localhost:8080/hello">Go Back</a>
-</body>
-</html>
+$if greeting:
+    I just wanted to say <em style="color: green; font-size: 2em">$greeting</em>.
+$else:
+    <em>Hello!</em>, world!
