@@ -1,12 +1,24 @@
 $def with (content)
-
+<!DOCTYPE = HTML>
 <html>
 <head>
     <title>Skeleton Base Layout</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyle.css"/>
 </head>
 <body>
 
-$:content
+    <header> 
+    <h1>My Sample Banner<h1>
+    </header>
+    
+    <div id="content">
+    $:content
+    </div>
+
+    <footer>
+    <p>Author: Brian McEntee<br/>
+        Date: 6.27.16
+    </footer>
 
 </body>
 </html>

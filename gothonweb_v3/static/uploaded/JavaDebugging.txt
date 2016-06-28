@@ -1,0 +1,50 @@
+*************************************
+	Java Debugging in Eclipse
+*************************************
+
+* Debugging allows you to interactively run a program while watching the
+	variables and the source code during execution.
+
+* Breakpoints are used in the source code to indicate the program where to stop
+	while debugging
+
+* Watchpoints are used in the source code to indicate the program should stop 
+	only if a field is read or modified. These are typically breakpoints that
+	are placed on a field.
+
+* Once program is stopped you can investigate vars, change their content, etc.
+
+*  We can either step into, step over, or step out of lines of code that contain
+	method calls. These will perform appropriately, allowing you to debug into the method call, skip it, or return to the caller or the current method.
+
+* A view of the call stack is given to show the parts of the program currently
+	being executed and how they relate to eachother. 
+
+* In the breakpoints view we can view/delete breakpoints as well as disable them
+	There is also an option to "Skip all breakpoints"
+
+* Use the drop down menu in the Variables view to eval static vars etc.
+
+* You can change variable assignments in the debugger at runtime in the Variables
+	view.
+
+* By default the Variables view uses an objects toString() method to display
+	its status. We can change this by giving a var a detail formatter that will
+	call another method in order to display the status. Either this, or 
+	overriding the toString() method is necessary. The latter is the better, and
+	most practiced option.
+
+* We can edit the properties of a breakpoint and give it conditions that
+	restricts the activation of the breakpoint. It could be given as a number
+	of times it has occured or a conditional expression. The program will only 
+	stop if the conditional expression written returns true.
+
+* Exception breakpoints can be created that will activate if the program throws
+	that specific exception. This can be done in the Breakpoints panel
+
+* Method breakpoints are created by placing the breakpoint on the same line as
+	the methods header. We can then edit this breakpoints properties to halt at the entrance or exit of the method.
+
+* A class load breakpoint can be added by right clicking on the class in the 
+	Outline view 
+

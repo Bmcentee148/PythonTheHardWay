@@ -1,0 +1,16 @@
+header{
+    background-color: blue;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: white;
+    padding: 0px 20px 0px 20px; 
+    margin: 5px 5px 5px 5px;
+}
+
+body{
+    background-color: deepskyblue;
+    margin: 0px;
+}

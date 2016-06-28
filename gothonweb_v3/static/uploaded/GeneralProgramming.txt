@@ -1,0 +1,16 @@
+*****************
+   Programming  
+*****************
+
+Programming language vs framework:
+	A language is syntax, grammar, semantics (and perhaps a core library) that 
+	implementers are required to support. A framework is a cohesive set of 
+	library code that together simplifies programming in any given language.
+
+InterfaceName obj = new ImplClassName();:
+	- ex. List myList = new ArrayList<>();
+	This forces us to program to the interface, which is a good thing. If we
+	decide later that an array list was not the best implementation for our 
+	current program, we only need to change the code at this line because we
+	can be confident that code only contains methods that are known to the 
+	interface.
