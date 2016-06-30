@@ -1,0 +1,4 @@
+#-- User Sessions in Python's Web Framework --#
+
+- Can create session object using :
+    session = web.session.Session(app, web.session.DiskStore('path'))
