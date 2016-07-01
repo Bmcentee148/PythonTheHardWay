@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    margin: 0px;
+    color: lightgray;
+    background-color : deepskyblue;
+}
+
+header {
+    margin: 5px;
+    border-style: dashed;
+    border-color: white;
+    border-width: 3px;
+    background-color: blue;
+
+}
+
+header h1 {
+    text-align: center;
+    font-style: bold;
+}
+
+label.hello {   
+    display: inline-block;
+    width: 70px;
+}
+
+nav ul {
+    margin: 0px 5px 0px 5px;
+    padding: 0px;
+}
+
+nav li {
+    padding: 2px;
+    margin: 5px 0px 5px 0px;
+    display: inline-block;
+    background-color: deepskyblue; 
+}
+
+nav {
+    margin: 5px 5px 5px 5px;
+    background-color: blue;
+    border-width: 3px;
+    border-style: dashed;
+    border-color: white; 
+}
+
+nav a{
+    margin: 0px;
+    text-decoration: none;
+    font-style: bold;
+}
