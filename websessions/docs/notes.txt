@@ -1,4 +1,18 @@
 #-- User Sessions in Python's Web Framework --#
 
 - Can create session object using :
-    session = web.session.Session(app, web.session.DiskStore('path'))
+    + session = web.session.Session(app, web.session.DiskStore('path'))
+
+- What do we do with our session object?
+    + create instance variables and assign to them
+        ex. session.logged_in = False
+    + then we can make decisions based on state of the variables or store data
+        ex. if session.get('logged_in',False) == True ...
+
+- TURN OFF WEB DEBUGGER WHEN USING SESSION
+    + if you do not, the sessions will not work properly
+    + web.config.debug = False
+
+- Web Redirecting
+    + web.seeother( URL )
+    + use inside a request response class's GET method to redirect to URL
